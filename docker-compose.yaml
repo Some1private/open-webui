@@ -5,6 +5,10 @@ services:
       - open-webui:/app/backend/data
     environment:
       - "WEBUI_SECRET_KEY=083cef3c66dfea94e4278a7f39d80c6d5d96192b5aca95021f6a326"
+    sysctls:
+      - fs.inotify.max_user_watches=524288
+      - fs.inotify.max_user_instances=512
+      - fs.inotify.max_queued_events=16384
     restart: unless-stopped
 
 volumes:
